@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JAM</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/script.js"></script>
+	<link rel="stylesheet" href="css/style.css" />
+	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+</head>
+<body x-ng-app="" x-ng-controller="TictactoeController">
+	<div class="container">
+		<div x-ng-class="{cells: true, xClick: b == 'x', oClick: b == 'o'}" x-ng-repeat="b in board track by $index" x-ng-click="clicker($index)"> {{ b }} </div>
+		
+		<button class="new-game" x-ng-click="reset()">NEW GAME</button>
+		
+		<div x-ng-show="mJordanWins()" class="jordanwins">
+			<p class="win-tie">GAME: JORDAN</p>
+			<button class="reset" x-ng-click="reset()">PLAY AGAIN?</button>
+		</div>
+		
+		<div x-ng-show="mJacksonWins()" class="jacksonwins">
+			<p class="win-tie">GAME: JACKSON</p>
+			<button class="reset" x-ng-click="reset()">PLAY AGAIN?</button>
+		</div>
+		
+		<div x-ng-show="draw()" class="draw">
+			<p class="win-tie">TIED GAME</p>
+			<button class="reset" x-ng-click="reset()">PLAY AGAIN?</button>
+		</div>
+	</div>
+</body>
+</html>
